@@ -1,0 +1,424 @@
+{
+ "priorities": {
+  "1": "Critical: fix today",
+  "2": "High: this week",
+  "3": "Medium: this month",
+  "4": "Low: when you can"
+ },
+ "fixes": {
+  "site_down": {
+   "priority": 1,
+   "title": "Your website did not load",
+   "why": "Visitors and customers can't reach you right now.",
+   "how": [
+    "Open your site on your phone using mobile data, not Wi-Fi, to confirm it is down for everyone.",
+    "Log in to your hosting or website builder account and look for a status or outage notice.",
+    "Check that your domain and hosting plans haven't expired; renewal emails often go to an old inbox.",
+    "If it is still down after an hour, contact your host's support and give them the error shown in this report."
+   ],
+   "learn_more": null
+  },
+  "domain_not_found": {
+   "priority": 1,
+   "title": "Your domain name is not pointing anywhere",
+   "why": "The web address doesn't lead to a server, which usually means an expired domain or a DNS change.",
+   "how": [
+    "Log in where you bought your domain and check that it is active and set to renew.",
+    "Check its DNS settings still point to your website host. Your host's help pages list the right values.",
+    "DNS changes can take a few hours to spread, so check again later the same day."
+   ],
+   "learn_more": null
+  },
+  "domain_expiring_30": {
+   "priority": 1,
+   "title": "Your domain name expires within a month",
+   "why": "If it lapses, your website and any email on that domain stop working, and someone else could register it.",
+   "how": [
+    "Log in where you bought your domain and check that auto-renew is on and the card on file is current.",
+    "If auto-renew is off, renew it now, ideally for more than one year."
+   ],
+   "learn_more": null
+  },
+  "domain_expiring_60": {
+   "priority": 2,
+   "title": "Your domain name expires within two months",
+   "why": "A quick check now avoids a scramble later.",
+   "how": [
+    "Log in where you bought your domain and confirm auto-renew is on and the payment card hasn't expired."
+   ],
+   "learn_more": null
+  },
+  "cert_invalid": {
+   "priority": 1,
+   "title": "Your security certificate has a problem",
+   "why": "Browsers show visitors a full-page warning, and most people leave.",
+   "how": [
+    "Open your site in a browser and read the exact warning.",
+    "In your hosting or website builder dashboard, find the SSL or HTTPS setting and renew or reissue the certificate.",
+    "Most hosts include free certificates that renew automatically; make sure auto-renew is switched on.",
+    "If you recently changed your domain, ask your host to issue a certificate that covers the new name and the www version."
+   ],
+   "learn_more": "https://developer.mozilla.org/en-US/docs/Web/Security/Transport_Layer_Security"
+  },
+  "cert_expiring_14": {
+   "priority": 1,
+   "title": "Your security certificate expires within 2 weeks",
+   "why": "Once it expires, browsers show a warning page instead of your site.",
+   "how": [
+    "Log in to your host and check that the certificate is set to renew automatically.",
+    "If renewal is manual, renew it today.",
+    "Next week's check will confirm the new expiry date."
+   ],
+   "learn_more": null
+  },
+  "cert_expiring_30": {
+   "priority": 2,
+   "title": "Your security certificate expires within a month",
+   "why": "Most certificates renew on their own, but it is worth confirming before it becomes urgent.",
+   "how": [
+    "Check your hosting dashboard for the certificate's renewal setting.",
+    "If it renews automatically, there's nothing to do. Next week's check will show the new date."
+   ],
+   "learn_more": null
+  },
+  "no_https_redirect": {
+   "priority": 2,
+   "title": "The http:// version of your site doesn't switch to https://",
+   "why": "Visitors who type your address without https see a \"Not secure\" label.",
+   "how": [
+    "In your hosting or website builder settings, find \"Force HTTPS\", \"Always use HTTPS\" or a similar switch and turn it on.",
+    "Then open http://yourdomain in a private browser window and check that it lands on https://."
+   ],
+   "learn_more": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security"
+  },
+  "alt_host_broken": {
+   "priority": 3,
+   "title": "The www (or non-www) version of your address doesn't work",
+   "why": "Some people type www and some don't. Both should reach your site.",
+   "how": [
+    "In your domain's DNS settings, make sure both the bare domain and www point to your host.",
+    "In your host's domain settings, set one as the main address and redirect the other to it."
+   ],
+   "learn_more": null
+  },
+  "noindex_home": {
+   "priority": 1,
+   "title": "Your homepage tells search engines not to list it",
+   "why": "A \"noindex\" tag hides your homepage from search results. This is often left on by mistake after a site launch.",
+   "how": [
+    "In your website builder, look for a setting like \"Hide from search engines\", \"Discourage search engines\" or \"Search engine visibility\" and switch it off.",
+    "If a developer built the site, ask them to remove the noindex robots tag from the homepage."
+   ],
+   "learn_more": "https://developers.google.com/search/docs/crawling-indexing/block-indexing"
+  },
+  "noindex_page": {
+   "priority": 2,
+   "title": "Some pages tell search engines not to list them",
+   "why": "That is fine for private pages, but not for pages you want customers to find.",
+   "how": [
+    "Look at the pages listed. For each one you want found, turn off the page's \"hide from search\" option."
+   ],
+   "learn_more": "https://developers.google.com/search/docs/crawling-indexing/block-indexing"
+  },
+  "robots_blocks_all": {
+   "priority": 1,
+   "title": "Your robots.txt file blocks all search engines",
+   "why": "A rule of \"Disallow: /\" for every crawler keeps your whole site out of search.",
+   "how": [
+    "Turn off any \"Discourage search engines\" setting in your website builder.",
+    "If you edit robots.txt yourself, remove the \"Disallow: /\" line under \"User-agent: *\"."
+   ],
+   "learn_more": "https://developers.google.com/search/docs/crawling-indexing/robots/intro"
+  },
+  "broken_internal": {
+   "priority": 2,
+   "title": "Broken links inside your site",
+   "why": "Visitors who click these hit an error page, and search engines notice too.",
+   "how": [
+    "Open each page listed under \"found on\" and find the link.",
+    "Point it to the right page, or remove it if the page is gone.",
+    "If you moved or renamed a page, add a redirect from the old address to the new one in your site settings."
+   ],
+   "learn_more": null
+  },
+  "broken_external": {
+   "priority": 3,
+   "title": "Links to other websites that no longer work",
+   "why": "They make your site look out of date.",
+   "how": [
+    "Open the page listed under \"found on\", then update or remove the link."
+   ],
+   "learn_more": null
+  },
+  "missing_title": {
+   "priority": 2,
+   "title": "A page has no title",
+   "why": "The title is the headline search engines show for your page.",
+   "how": [
+    "In your website builder, open the page's SEO or page settings.",
+    "Add a title of about 50 to 60 characters: what the page offers plus your business name and town."
+   ],
+   "learn_more": "https://developers.google.com/search/docs/appearance/title-link"
+  },
+  "title_length": {
+   "priority": 4,
+   "title": "A page title is very short or very long",
+   "why": "Long titles get cut off in search results; very short ones say too little.",
+   "how": [
+    "Aim for about 50 to 60 characters: what the page offers, plus your business name."
+   ],
+   "learn_more": "https://developers.google.com/search/docs/appearance/title-link"
+  },
+  "missing_description": {
+   "priority": 3,
+   "title": "A page has no meta description",
+   "why": "The description is often the snippet people read under your link in search results.",
+   "how": [
+    "In the page's SEO settings, write one or two sentences (about 120 to 160 characters) on what visitors will find and why it is worth a click."
+   ],
+   "learn_more": "https://developers.google.com/search/docs/appearance/snippet"
+  },
+  "description_length": {
+   "priority": 4,
+   "title": "A meta description is very short or very long",
+   "why": "Very short descriptions say little; long ones get cut off.",
+   "how": [
+    "Aim for about 120 to 160 characters."
+   ],
+   "learn_more": "https://developers.google.com/search/docs/appearance/snippet"
+  },
+  "missing_h1": {
+   "priority": 3,
+   "title": "A page has no main heading",
+   "why": "A clear main heading (H1) helps visitors and search engines understand the page.",
+   "how": [
+    "Give each page one main heading at the top, using the \"Heading 1\" style in your editor."
+   ],
+   "learn_more": null
+  },
+  "multiple_h1": {
+   "priority": 4,
+   "title": "A page has more than one main heading",
+   "why": "One main heading per page keeps the outline clear.",
+   "how": [
+    "Keep one \"Heading 1\" and change the others to \"Heading 2\"."
+   ],
+   "learn_more": null
+  },
+  "missing_viewport": {
+   "priority": 2,
+   "title": "A page isn't set up for phones",
+   "why": "Without a viewport tag, phones show a tiny zoomed-out page.",
+   "how": [
+    "Most modern themes include this. If yours doesn't, ask your developer to add the standard viewport meta tag, or switch to a mobile-friendly theme."
+   ],
+   "learn_more": "https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag"
+  },
+  "missing_lang": {
+   "priority": 4,
+   "title": "A page doesn't declare its language",
+   "why": "Screen readers and translation tools use it.",
+   "how": [
+    "Set your site language in your website builder's general settings."
+   ],
+   "learn_more": null
+  },
+  "images_missing_alt": {
+   "priority": 4,
+   "title": "Images without alt text",
+   "why": "Alt text describes an image for people using screen readers, and helps search engines.",
+   "how": [
+    "In your editor, click each image listed and fill in its alt text or image description: a short, plain description of what it shows.",
+    "Purely decorative images can have empty alt text."
+   ],
+   "learn_more": "https://www.w3.org/WAI/tutorials/images/"
+  },
+  "mixed_content": {
+   "priority": 3,
+   "title": "Some files load over insecure http://",
+   "why": "Browsers may block them or show a \"Not secure\" warning.",
+   "how": [
+    "Change the listed image, script or style addresses from http:// to https://.",
+    "If the file isn't available over https, upload it to your own site instead."
+   ],
+   "learn_more": "https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content"
+  },
+  "duplicate_titles": {
+   "priority": 4,
+   "title": "Several pages share the same title",
+   "why": "Search engines can't tell them apart.",
+   "how": [
+    "Give each page its own title that says what is on that page."
+   ],
+   "learn_more": "https://developers.google.com/search/docs/appearance/title-link"
+  },
+  "no_sitemap": {
+   "priority": 4,
+   "title": "No sitemap found",
+   "why": "A sitemap lists your pages so search engines can find them all.",
+   "how": [
+    "Most website builders make one automatically at /sitemap.xml; check it is switched on.",
+    "Then add it to your robots.txt file with a line like \"Sitemap: https://yourdomain/sitemap.xml\"."
+   ],
+   "learn_more": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview"
+  },
+  "no_robots": {
+   "priority": 4,
+   "title": "No robots.txt file",
+   "why": "It isn't required, but it is the usual place to point search engines to your sitemap.",
+   "how": [
+    "Many builders create one for you; look for a robots.txt setting."
+   ],
+   "learn_more": "https://developers.google.com/search/docs/crawling-indexing/robots/intro"
+  },
+  "no_favicon": {
+   "priority": 4,
+   "title": "No site icon (favicon)",
+   "why": "The small icon in browser tabs and bookmarks makes your site easy to spot.",
+   "how": [
+    "Upload a square version of your logo as the site icon or favicon in your website builder's settings."
+   ],
+   "learn_more": null
+  },
+  "no_og_image": {
+   "priority": 4,
+   "title": "No social sharing image",
+   "why": "When someone shares your link, there is no picture in the preview.",
+   "how": [
+    "In your site's SEO or social settings, set a default sharing image, ideally 1200 by 630 pixels."
+   ],
+   "learn_more": null
+  },
+  "no_local_schema": {
+   "priority": 4,
+   "title": "No local business details for search engines",
+   "why": "Structured data can help search engines show your hours, address and phone.",
+   "how": [
+    "Many builders and SEO add-ons have a \"Local business\" or \"Business details\" section; fill it in.",
+    "Keep the details exactly the same as on your Google Business Profile."
+   ],
+   "learn_more": "https://developers.google.com/search/docs/appearance/structured-data/local-business"
+  },
+  "slow_load": {
+   "priority": 3,
+   "title": "Your homepage is slow to load",
+   "why": "Slow pages lose visitors, especially on phones and mobile data.",
+   "how": [
+    "Shrink large images before uploading (most photos only need to be about 1600 pixels wide).",
+    "Remove add-ons, sliders, chat widgets or embeds you don't really need.",
+    "Ask your host whether caching and compression are switched on."
+   ],
+   "learn_more": "https://web.dev/learn/performance"
+  },
+  "heavy_page": {
+   "priority": 3,
+   "title": "Your homepage is heavy",
+   "why": "A heavy page takes longer to load and uses up visitors' mobile data.",
+   "how": [
+    "Start with the largest files listed in this report and resize or compress them.",
+    "Use one or two photos at the top of the page rather than a large gallery or video that plays on load."
+   ],
+   "learn_more": "https://web.dev/learn/performance"
+  },
+  "slow_ttfb": {
+   "priority": 3,
+   "title": "Your server is slow to respond",
+   "why": "The first byte of your homepage took a long time to arrive.",
+   "how": [
+    "Turn on your host's caching option if it has one.",
+    "If it stays slow week after week, ask your host about a faster plan or server."
+   ],
+   "learn_more": null
+  },
+  "not_compressed": {
+   "priority": 4,
+   "title": "Your pages aren't compressed",
+   "why": "Compression makes pages download faster for free.",
+   "how": [
+    "Ask your host to turn on gzip or Brotli compression; many hosts have a switch for it."
+   ],
+   "learn_more": null
+  },
+  "large_files": {
+   "priority": 4,
+   "title": "Very large files on your homepage",
+   "why": "Big images or scripts slow down the first visit.",
+   "how": [
+    "Resize or compress the files listed. Image files under about 300 KB are a good target."
+   ],
+   "learn_more": null
+  },
+  "security_headers": {
+   "priority": 4,
+   "title": "Missing security settings",
+   "why": "A few standard settings help protect visitors. They are worth asking your host or developer about.",
+   "how": [
+    "Share the list of missing settings in this report with your host or developer and ask them to add them."
+   ],
+   "learn_more": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers"
+  },
+  "stale_content": {
+   "priority": 4,
+   "title": "Your site hasn't had a visible update in a while",
+   "why": "Fresh news, photos or offers show customers you are open and active.",
+   "how": [
+    "Add something new: a seasonal offer, a recent photo, an updated menu or an event."
+   ],
+   "learn_more": null
+  },
+  "copyright_old": {
+   "priority": 4,
+   "title": "The year in your footer is out of date",
+   "why": "An old year can make visitors wonder if you are still open.",
+   "how": [
+    "Update the copyright year in your footer, or ask your developer to make it update automatically."
+   ],
+   "learn_more": null
+  },
+  "phone_not_on_home": {
+   "priority": 3,
+   "title": "Your phone number isn't on your homepage",
+   "why": "Many customers visit just to call you.",
+   "how": [
+    "Add your phone number to the header or footer so it appears on every page. Make it tappable on phones."
+   ],
+   "learn_more": null
+  },
+  "street_not_on_home": {
+   "priority": 4,
+   "title": "Your address isn't on your homepage",
+   "why": "Customers looking for directions expect to find it quickly.",
+   "how": [
+    "Add your address to the footer, matching your Google Business Profile exactly."
+   ],
+   "learn_more": null
+  }
+ },
+ "gbp_reminders": [
+  {
+   "topic": "Hours",
+   "text": "Check your Google Business Profile hours, and add special hours for any holiday or closure in the next month."
+  },
+  {
+   "topic": "Photos",
+   "text": "Add one or two fresh photos to your Google Business Profile: your storefront, your team or something new."
+  },
+  {
+   "topic": "Reviews",
+   "text": "Reply to any new Google reviews, good or bad, briefly and politely."
+  },
+  {
+   "topic": "Updates",
+   "text": "Post a short update or offer on your Google Business Profile."
+  },
+  {
+   "topic": "Details",
+   "text": "Check that your Google Business Profile phone, website address and categories still match your site."
+  },
+  {
+   "topic": "Products and services",
+   "text": "Check the products or services listed on your Google Business Profile are current."
+  }
+ ],
+ "gbp_help": "https://support.google.com/business/"
+}
