@@ -92,8 +92,12 @@ def parse(html, base):
     for h in p.links:
         if h.startswith(('mailto:', 'tel:', 'javascript:', '#', 'sms:', 'data:')):
             continue
-        links.append(urldefrag(urljoin(base, h))[0])
-    years = [int(y) for y in YEAR_RE.findall(html)]
+        u = urldefrag(urljoin(base, h))[0]
+        if re.match(r'^https?://[^/?#]+$', u):
+            u += '/'  # https://site and https://site/ are the same page
+        links.append(u)
+    # Drop HTML comments first: React and Next.js put <!-- --> between the symbol and the year.
+    years = [int(y) for y in YEAR_RE.findall(re.sub(r'<!--.*?-->', '', html, flags=re.S))]
     jsonld_types = re.findall(r'"@type"\s*:\s*"([^"]+)"', ' '.join(p.jsonld))
     return {
         'title': p.title, 'meta_description': p.meta.get('description'), 'robots_meta': p.meta.get('robots', ''),

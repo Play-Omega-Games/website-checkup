@@ -279,5 +279,18 @@ class Library(unittest.TestCase):
             self.assertNotIn('PUT', re.sub(r'OUTPUT|INPUT', '', src))
 
 
+class CopyrightYear(unittest.TestCase):
+    def test_year_found_with_react_comments(self):
+        from sitecheckup import page
+        html = '<html><body><div>\u00a9 <!-- -->2026<!-- --> Omega Games. All rights reserved.</div></body></html>'
+        self.assertEqual(page.parse(html, 'https://example.com/')['copyright_years'], [2026])
+
+    def test_homepage_link_without_slash_is_one_page(self):
+        from sitecheckup import page
+        html = '<a href="https://example.com">Home</a><a href="https://example.com/">Home</a><a href="/about">About</a>'
+        links = page.parse(html, 'https://example.com/about')['links']
+        self.assertEqual(sorted(set(links)), ['https://example.com/', 'https://example.com/about'])
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=1)
